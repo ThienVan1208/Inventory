@@ -9,7 +9,8 @@ public class Bag : MonoBehaviour // attach for InventoryPanel, used for adding i
     public static Bag bagInstance;
 
     // Hold the info of items
-    Dictionary<string, int> ListItem = new Dictionary<string, int>();
+    [HideInInspector]
+    public Dictionary<string, int> ListItem = new Dictionary<string, int>();
 
     // This is used for find the proper image of item added
     public List<Image> ListUI = new List<Image>();
@@ -77,5 +78,22 @@ public class Bag : MonoBehaviour // attach for InventoryPanel, used for adding i
             
         }
         Debug.Log(name_item + ":" + ListItem[name_item].ToString()); 
+    }
+    public void RemoveItem(string name_item)// Used in InventoryDes class
+    {
+        for(int i = 0; i < listPanel.transform.childCount; i++)
+        {
+            GameObject remove_item = listPanel.transform.GetChild(i).gameObject;
+            if (remove_item.transform.childCount != 0)
+            {
+                Debug.Log("child count != 0");
+                if (remove_item.transform.GetChild(0).GetComponent<ItemEffect>().nameItem.Equals(name_item))
+                {
+                    Destroy(remove_item.transform.GetChild(0).gameObject);
+                    Debug.Log("destroy"); 
+                    return;
+                }
+            }
+        }
     }
 }

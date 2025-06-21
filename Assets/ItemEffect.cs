@@ -9,7 +9,7 @@ public class ItemEffect : MonoBehaviour, IEndDragHandler, IDragHandler, IBeginDr
 
     [HideInInspector]
     public Transform window_panel;
-    public string nameItem;
+    public string nameItem;// used for AddItem method in Bag class and must be the same as nameItem in ItemEffect class
     public int numberHeld = 1;
 
     [TextArea(1,10)]

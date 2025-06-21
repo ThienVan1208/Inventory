@@ -6,7 +6,7 @@ public class Collect : MonoBehaviour
 {
     // This class is attached to Item Prefabs
 
-    public string name_item;
+    public string name_item;// used for AddItem method in Bag class and must be the same as nameItem in ItemEffect class
     private bool canCollect;
     
     private void CollectItem()
